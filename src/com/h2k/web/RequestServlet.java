@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.h2k.web.listener.Customer;
+
 public class RequestServlet extends HttpServlet {
 	
 	@Override
@@ -64,6 +66,9 @@ public class RequestServlet extends HttpServlet {
 		out.println("<p> Customer ZipCode Attribute Value :: " + session.getAttribute("custZipCode") + " </p>");
 		// getting attribute from Context
 		out.println("<p> Context Attribute Value for DBName:: " + getServletContext().getAttribute("DBName") + " </p>");
+		Customer cust = (Customer) session.getAttribute("customer100");
+		System.out.println(cust);
+		session.removeAttribute("customer100");
 		
 		out.println("<p> Customers LocalAddr  :: " + req.getLocalAddr()+ " </p>");
 		out.println("<p> Customers RemoteAddr :: " + req.getRemoteAddr() + " </p>");

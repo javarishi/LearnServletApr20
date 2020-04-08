@@ -86,7 +86,13 @@
   		<url-pattern>/test</url-pattern>
   </servlet-mapping>
   
+  <listener>
+  	<listener-class>com.h2k.web.listener.TestServletRequestListener</listener-class>
+  </listener>
   
+  <listener>
+  		<listener-class>com.h2k.web.listener.TestSessionListener</listener-class>
+  </listener>
   <session-config>
   	<session-timeout>10</session-timeout>
   </session-config>

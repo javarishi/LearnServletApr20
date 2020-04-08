@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.h2k.web.listener.Customer;
+
 public class SessionServlet extends HttpServlet {
 
 	
@@ -41,7 +43,16 @@ public class SessionServlet extends HttpServlet {
 		out.println("<p> session.getLastAccessedTime() :: " + session.getLastAccessedTime() + "</p>");
 		out.println("<p> session.getMaxInactiveInterval() :: " + session.getMaxInactiveInterval() + "</p>");
 		
-		session.invalidate();
+		Customer cust = new Customer();
+		cust.setFirstName("David");
+		cust.setCustId("100");
+		cust.setSsn("102392193");
+		cust.setCreditCardInfo("230432094892304");
+		
+		session.setAttribute("customer100", cust);
+		
+		
+		//session.invalidate();
 		out.println("<p> session.invalidate() :: </p>");
 		
 		out.println("</BODY></HTML>");
