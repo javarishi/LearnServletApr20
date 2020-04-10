@@ -39,8 +39,23 @@
 		<li>6. config - HttpServletConfig</li>
 		<li>7. page - Instance of JSP Page. Java "this" </li>
 		<li>8. pageContext - Page Manager by Tomcat</li>
-		
 	</ul>
+	
+	<!--  Set an Attribute in All Scopes -->
+	
+	<%
+		pageContext.setAttribute("requestKey", "requestValue", PageContext.REQUEST_SCOPE);
+		pageContext.setAttribute("pageKey", "pageValue", PageContext.PAGE_SCOPE);
+		pageContext.setAttribute("sessionKey", "sessionValue", PageContext.SESSION_SCOPE);
+		pageContext.setAttribute("contextKey", "contextValue", PageContext.APPLICATION_SCOPE);
+		
+		//RequestDispatcher rd = application.getRequestDispatcher("/hello");
+		//rd.forward(request, response);
+		
+		response.sendRedirect("https://www.h2kinfosys.com");
+	%>
+	
+	
 	<%@ include file="footer.jsp" %>
 </body>
 </html>
