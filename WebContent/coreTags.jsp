@@ -17,7 +17,7 @@
 </p>
 <p>
 <c:out value="Value of Salary ::" />
-<fmt:formatNumber value="${salary}" type="currency" currencySymbol="$"/>
+<fmt:formatNumber value="${salary}" type="currency" currencySymbol="$" groupingUsed="false"/>
 
 </p>
 <p>
@@ -64,9 +64,9 @@
 <p>Formatted Date : yyyy-MM-dd (7): <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${now}" /></p>
 
 
-<fmt:setBundle basename="com.h2kinfosys.web.myVars_en" var="english_lang"/>
-<fmt:message key="AccType1" bundle="${english_lang}"/><br/>
-<fmt:message key="AccType2" bundle="${english_lang}"/><br/>
-<fmt:message key="AccType3" bundle="${english_lang}"/><br/>
+<fmt:setBundle basename="com.h2k.web.menu_enUS" var="english_menu"/>
+<fmt:message key="menu01" bundle="${english_menu}"/><br/>
+<fmt:message key="menu03" bundle="${english_menu}"/><br/>
+<fmt:message key="menu02" bundle="${english_menu}"/><br/>
 </body>
 </html>

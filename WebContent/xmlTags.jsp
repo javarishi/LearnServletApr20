@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>XML Tags</title>
 </head>
 <body>
 
@@ -32,11 +32,29 @@
 	Document has at least one book element.
 </x:if>
 
+<p>
+<x:if select="$output//book[1]/price >= 100">
+	Book Price is Very high
+</x:if>
+</p>
 
 <ul class="list"> 
 	<x:forEach select="$output/books/book/name" var="item">
 		<li>Book Name: <x:out select="$item" /></li>
 	</x:forEach>
 </ul>
+
+
+<x:choose>
+	<x:when select="$output//book/author = 'ZARA'">
+		Book is written by ZARA
+	</x:when>
+	<x:when select="$output//book/author = 'NUHA'">
+		Book is written by NUHA
+	</x:when>
+	<x:otherwise>
+		Unknown author.
+	</x:otherwise>
+</x:choose>
 </body>
 </html>

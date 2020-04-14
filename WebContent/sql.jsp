@@ -11,29 +11,24 @@
 <title>SQL Tags</title>
 </head>
 <body>
-<sql:setDataSource var="snapshot" 
-		driver="com.mysql.jdbc.Driver"
+<sql:setDataSource var="dataSource" 
+		driver="com.mysql.cj.jdbc.Driver"
 		url="jdbc:mysql://localhost:3306/sakila"
-		user="rishi" 
+		user="root" 
 		password="password"/>
+		
+<%! String firstName = "BRIAN"; %>
 
-
-<%
-Date DoB = new Date("2001/12/16");
-int studentId = 100;
-String firstName = "Ryan";
-%>
-
-<sql:update dataSource="${snapshot}"  var="count">
+	
+<sql:update dataSource="${dataSource}"  var="count">
 	UPDATE actor SET first_name = ? where actor_id = ?;
 	<sql:param value="<%= firstName %>" />
-	<sql:param value="<%=45 %>" />
-	
-	<c:out value="${count}"></c:out>
+	<sql:param value="<%= 45 %>" />
 </sql:update>
-
-		
-<sql:query dataSource="${snapshot}" var="result">
+<p> Number of Rows Affected :: </p>
+<c:out value="${count}" />
+<!-- 
+<sql:query dataSource="${dataSource}" var="result">
 	SELECT * from Actor;
 </sql:query>
 <table border="1" width="100%">
@@ -52,6 +47,6 @@ String firstName = "Ryan";
 </tr>
 </c:forEach> 
 </table>
-
+ -->
 
 </body></html>
